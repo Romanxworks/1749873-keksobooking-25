@@ -28,14 +28,15 @@ const getRandomArrayElement = (elements) => elements[getRandomInt(0, elements.le
 
 const getArrayStrings =(array) => {
   const features = array.sort(()=>Math.random()-0.5);
-
   return features.slice(0, getRandomInt(1,array.length+1));
 };
 
-const createLocation = ()=>({
-  lat:getRandomInt(35.65000, 35.70000, 5),
-  lng:getRandomInt(139.70000, 139.80000, 5),
-});
+function createLocation() {
+  return ({
+    lat: getRandomInt(35.65000, 35.70000, 5),
+    lng: getRandomInt(139.70000, 139.80000, 5),
+  });
+}
 const getAdressString = ()=>{
   const adress = createLocation();
   return `${adress.lat}, ${adress.lng}`;
