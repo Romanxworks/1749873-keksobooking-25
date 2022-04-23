@@ -137,13 +137,15 @@ function checkFeatures(ad){
 function getFilters (ads){
   const filteredAds=[];
   const filters=[checkType, checkRooms, checkPrice, checkGuests, checkFeatures];
-  ads.forEach((ad)=>{
+  for(const ad of ads ){
     if(filters.every((filter)=>filter(ad))) {
-      if(filteredAds.length<=9){
-        filteredAds.push(ad);
-      }
+      filteredAds.push(ad);
     }
-  });
+    if(filteredAds.length===10){
+      break;
+    }
+  }
+
   return filteredAds;
 }
 
